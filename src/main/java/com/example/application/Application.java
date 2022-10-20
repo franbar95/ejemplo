@@ -22,9 +22,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @NpmPackage(value = "@vaadin-component-factory/vcf-nav", version = "1.0.6")
 public class Application implements AppShellConfigurator {
     private static final long serialVersionUID = 1L;
+    
+    private static int contador = 0;
 
+    public static void sumar() {
+    	contador++;
+    }
+    
 	public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
+	public static int getContador() {
+		return contador;
+	}
+
+	public static void setContador(int contador) {
+		Application.contador = contador;
+	}
 }

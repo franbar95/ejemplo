@@ -1,5 +1,6 @@
 package com.example.application.views.ejemplo;
 
+import com.example.application.Application;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H2;
@@ -14,7 +15,6 @@ import com.vaadin.flow.router.Route;
 public class EjemploView extends VerticalLayout {
     private static final long serialVersionUID = 1L;
     
-    private int clicks = 0;
     private int maximo = 2147483647;
 
 	public EjemploView() {
@@ -25,12 +25,17 @@ public class EjemploView extends VerticalLayout {
         texto.setLabel("CLICKS");
         texto.setEnabled(false);
         texto.setWidth("600px");
+        texto.setValue(Application.getContador()+" Clicks egristrados, faltan "+(maximo-Application.getContador())+" para tumbar el server.!");
         
         Button boton = new Button("CLIKEAME!", event -> {
-        	clicks++;
+        	Application.sumar();
         	//System.out.print("se han echo "+clicks +" clicks desde la ejecucion.!");
-        	texto.setValue(clicks+" Clicks egristrados, faltan "+(maximo-clicks)+" para tumbar el server.!");
+        	texto.setValue(Application.getContador()+" Clicks egristrados, faltan "+(maximo-Application.getContador())+" para tumbar el server.!");
         });
+        
+        boton.setHeight("100px");
+        boton.setWidth("200px");
+        boton.getStyle().set("textSize", "38px");
         
         add(boton);
 
