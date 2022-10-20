@@ -16,11 +16,12 @@ public class EjemploView extends VerticalLayout {
     private static final long serialVersionUID = 1L;
     
     private int maximo = 2147483647;
+    
+    private TextField texto = new TextField();
 
 	public EjemploView() {
         setSpacing(false);       
-        
-        TextField texto = new TextField();
+
         texto.setHelperText("Cantidad de clicks desde la ejecución del server.!");
         texto.setLabel("CLICKS");
         texto.setEnabled(false);
@@ -49,5 +50,4 @@ public class EjemploView extends VerticalLayout {
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
         getStyle().set("text-align", "center");
     }
-
 }

@@ -40,4 +40,5 @@ public class Application implements AppShellConfigurator {
 	public static void setContador(int contador) {
 		Application.contador = contador;
 	}
+	
 }
